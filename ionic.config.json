@@ -1,5 +1,7 @@
 {
   "name": "quickstart",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
