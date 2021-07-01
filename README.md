@@ -1,4 +1,4 @@
 # quickstart-ionic
 HyperTrack integration sample for Ionic Cordova
 
-# WIP
+[Docs](https://hypertrack.com/docs/install-sdk-ionic)
