@@ -17,7 +17,7 @@ export class HomePage {
       console.log("Button Clicked")
       console.log("Initializing HyperTrack")
       HyperTrack.enableDebugLogging();
-      this.sdkInstance = await HyperTrack.initialize('jNvgqDgY_j3yj-OwbTQtVcCoVGMOLkmllgV7KUtElL5j3g3nGwNEpLzdOO88KZ1E6rkeGmH7b9spUSFIYM5SkQ');
+      this.sdkInstance = await HyperTrack.initialize('YOUR-PUBLISHABLE-KEY-HERE');
       console.log("HyperTrack succesfully initialized");
       this.isRegistered = true;
       await this.sdkInstance.setDeviceName('QuickStart');
