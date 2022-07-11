@@ -1,7 +1,8 @@
 {
   "name": "quickstart",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }

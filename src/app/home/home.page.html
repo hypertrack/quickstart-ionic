@@ -14,12 +14,8 @@
   </ion-header>
 
   <div id="container">
-    <ion-content>
-      <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-        <ion-fab-button (click)="buttonClicked()">
-          Initialize HyperTrack
-        </ion-fab-button>
-      </ion-fab>
-    </ion-content>
+    <ion-button expand="full" (click)="buttonClicked()">Initialize HyperTrack</ion-button>
+    <ion-button expand="full" *ngIf="isRegistered" (click)="startHyperTrack()">Start HyperTrack</ion-button>
+    <ion-button expand="full" *ngIf="isRegistered"  (click)="stopHyperTrack()">Stop HyperTrack</ion-button>
   </div>
 </ion-content>
