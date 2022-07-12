@@ -1,27 +1,43 @@
 import { Component } from '@angular/core';
-import {HyperTrack} from '@ionic-native/hyper-track';
-
+import { HyperTrack } from '@awesome-cordova-plugins/hyper-track/ngx';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  constructor() {}
-
-  buttonClicked() {
-    console.log("Button Clicked")
-    console.log("Initializing HyperTrack")
-    HyperTrack.enableDebugLogging()
-    HyperTrack.initialize('YOUR-PUBLISHABLE-KEY-HERE')
-    .then( this.onSdkInstanceReceived )
-    .catch((err) => console.error("HyperTrack init failed with error " + err));  
+  isRegistered:boolean = false;
+  sdkInstance:HyperTrack;
+  constructor() {
     
   }
 
-   onSdkInstanceReceived(sdkInstance: HyperTrack) {
-    console.log("HyperTrack succesfully initialized");
+  async buttonClicked() {
+    try {
+      console.log("Button Clicked")
+      console.log("Initializing HyperTrack")
+      HyperTrack.enableDebugLogging();
+      this.sdkInstance = await HyperTrack.initialize('YOUR-PUBLISHABLE-KEY-HERE');
+      console.log("HyperTrack succesfully initialized");
+      this.isRegistered = true;
+      await this.sdkInstance.setDeviceName('QuickStart');
+      await this.sdkInstance.setDeviceMetadata({title:'QuickStart App',message:'This is quickstart testing app'});
+    } catch (error) {
+      console.log("error found",error);
+    }
   }
+
+  startHyperTrack() {
+    this.sdkInstance.start().then(res => console.log('started'));
+  }
+  
+  stopHyperTrack() {
+    this.sdkInstance.stop().then(res => { 
+      console.log('stop tracking');
+      this.isRegistered = false;
+    });
+  }
+
+  
 
 }
