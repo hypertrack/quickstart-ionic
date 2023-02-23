@@ -27,19 +27,19 @@
         <ion-button color="danger" expand="block" (click)="stopHyperTrack()">Stop Tracking</ion-button>
       </ion-col>
     </ion-row>
-    <ion-row *ngIf="trackingStatus">
+    <!-- <ion-row *ngIf="trackingStatus">
       <ion-col>
         <div class="track">
           <div class="blinker"></div>
           <div class="status">Tracking in on... </div>
         </div>
       </ion-col>
-    </ion-row>
-    <ion-row>
+    </ion-row> -->
+    <!-- <ion-row>
       <ion-col>
         <div class="content">Tracking State Change: {{trackingStateChange}}</div>
       </ion-col>
-    </ion-row> 
+    </ion-row>  -->
     <ion-row>
       <ion-col>
           <ion-button expand="block" color="success" (click)="setAvailability(true)">Set Availability True</ion-button>
@@ -48,11 +48,11 @@
           <ion-button expand="block" color="danger"  (click)="setAvailability(false)">Set Availability False</ion-button>
       </ion-col>
     </ion-row>
-    <ion-row>
+    <!-- <ion-row>
       <ion-col>
         <div class="content">Availability State Change: {{availabilityStatus}}</div>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
   </ion-grid>
   <ion-accordion-group>
     <ion-accordion value="first">
@@ -89,9 +89,6 @@
           <ion-row>
             <ion-col>
               <ion-button expand="block" (click)="isTrackingMethod()">is-Tracking</ion-button>
-            </ion-col>
-            <ion-col>
-              <ion-button expand="block" (click)="isRunning()">is-Running</ion-button>
             </ion-col>
             <ion-col>
               <ion-button expand="block" (click)="getAvailabilityStatus()">Get Availability Status</ion-button>
