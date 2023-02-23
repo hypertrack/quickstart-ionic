@@ -1,75 +1,68 @@
-# quickstart-ionic
-HyperTrack integration sample for Ionic Cordova
+# Ionic Cordova Quickstart for HyperTrack SDK
 
-[Docs](https://hypertrack.com/docs/install-sdk-ionic)
+![GitHub](https://img.shields.io/github/license/hypertrack/quickstart-ionic.svg) 
+![HyperTrack SDK Cordova](https://img.shields.io/npm/v/cordova-plugin-hypertrack-v3.svg) 
+ 
+[HyperTrack](https://www.hypertrack.com/) lets you add live location tracking to your mobile app. Live location is made available along with ongoing activity, tracking controls and tracking outage with reasons. 
 
-## Create HyperTrack Account
+This repo contains an example Ionic Cordova app that has everything you need to get started.
 
-[Sign up](https://dashboard.hypertrack.com/signup) for HyperTrack and
-get your publishable key from the [Setup page](https://dashboard.hypertrack.com/setup).
+For information about how to get started with Ionic Cordova SDK, please check this [Guide](https://www.hypertrack.com/docs/install-sdk-ionic).
 
-## Set up Firebase
+## How to get started?
 
-1. [Set up Firebase Project for quickstart-ionic](https://console.firebase.google.com/u/0/)
+### Create HyperTrack Account
 
-## Set up [ionic native wrapper](https://github.com/hypertrack/ionic-native)
+[Sign up](https://dashboard.hypertrack.com/signup) for HyperTrack and get your publishable key from the [Setup page](https://dashboard.hypertrack.com/setup).
 
-Follow the following step to add ionic native wrapper in your project.
-1. clone the repo(https://github.com/hypertrack/ionic-native)
-2. checkout to ```feature/add-missing-interfaces``` 
-3. add dependencies ```npm i```
-4. npm run build
-5. Go to the path ```ionic-native/dist/@awesome-cordova-plugins/plugins```
-6. Copy ```hyper-track```
-7. Go to the quickstart app ```cd quickstart-ionic```
-8. Paste copied folder in ```./quickstart-ionic/node_modules/@awesome-cordova-plugins``` (please replace the folder if already exists).  
+### Set up the environment
 
-## Build the app
+Run
+`npm i -g @ionic/cli`
 
-Install dependepcies
-```npm i```
+### Clone Quickstart app
 
-Prepare Ionic build by running [build command](https://ionicframework.com/docs/cli/commands/capacitor-build):
-```ionic capacitor build```
+### Install Dependencies
 
-This command will generate platform files in `ios` and `android` folders
+#### General Dependencies
 
-You need to add more changes to `android` folder in order for app to work 
+Run `npm install`
 
-#### Update Android SDK versions
+#### Ionic Native
 
-In ```quickstart-ionic/android/variables.gradle```:
+Run `npm run install-ionic-native`
 
-```
-minSdkVersion = 24
-compileSdkVersion = 31
-targetSdkVersion = 31
-```
-In ```quickstart-ionic/ios/App/App/Info.plist```
+#### iOS dependencies
 
-```
-<key>NSDebugDescription</key>
-<string>&lt;YOUR APP&gt; needs to access this device's motion updates for &lt;REASON&gt;</string>
-<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-<string>&lt;YOUR APP&gt; needs to access this device's location for &lt;REASON&gt;</string>
-<key>NSLocationWhenInUseUsageDescription</key>
-<string>&lt;YOUR APP&gt; needs to access this device's location for &lt;REASON&gt;</string>
-<key>NSMotionUsageDescription</key>
-<string>&lt;YOUR APP&gt; needs to access this device's motion updates for &lt;REASON&gt;</string>
-<key>UIBackgroundModes</key>
-<array>
-    <string>location</string>
-    <string>remote-notification</string>
-</array>
+Quickstart app uses [CocoaPods](https://cocoapods.org/) dependency manager to install the latest version of the iOS SDK. Using the latest version of CocoaPods is advised.
+
+If you don't have CocoaPods, [install it first](https://guides.cocoapods.org/using/getting-started.html#installation).
+
+```sh
+cd ios
+pod install
 ```
 
-#### Build
+### Update the publishable key
 
-Build the app for each platform using corresponding native IDE (Android Studio / Xcode)
+Insert your HyperTrack publishable key to `const PUBLISHABLE_KEY` in `src/app/home/home.page.ts`
 
-This command will open the IDE. If it didn't happen you need to do it manually. 
+### [Set up silent push notifications](https://hypertrack.com/docs/install-sdk-ionic/#step-4-set-up-silent-push-notifications)
 
+HyperTrack SDK needs Firebase Cloud Messaging to manage on-device tracking as well as enable using HyperTrack cloud APIs from your server to control the tracking.
 
+### Run the app
+
+### Grant permissions
+
+Grant location and activity permissions (choose "Always Allow" for location).
+
+### Start tracking
+
+Press `Start tracking` button.
+
+To see the device on a map, open the [HyperTrack dashboard](https://dashboard.hypertrack.com/).
 
 ## Support
-Join our [Slack community](https://join.slack.com/t/hypertracksupport/shared_invite/enQtNDA0MDYxMzY1MDMxLTdmNDQ1ZDA1MTQxOTU2NTgwZTNiMzUyZDk0OThlMmJkNmE0ZGI2NGY2ZGRhYjY0Yzc0NTJlZWY2ZmE5ZTA2NjI) for instant responses. You can also email us at help@hypertrack.com.
+
+Join our [Slack community](https://join.slack.com/t/hypertracksupport/shared_invite/enQtNDA0MDYxMzY1MDMxLTdmNDQ1ZDA1MTQxOTU2NTgwZTNiMzUyZDk0OThlMmJkNmE0ZGI2NGY2ZGRhYjY0Yzc0NTJlZWY2ZmE5ZTA2NjI) for instant responses. You can also email us at help@hypertrack.com

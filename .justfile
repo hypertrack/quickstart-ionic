@@ -5,14 +5,14 @@ copy-local-plugin:
 open-nm-plugins:
     open node_modules/@awesome-cordova-plugins
 
+build-android:
+    ionic cordova build android
+
 run-android:
     ionic cordova run android
 
 run-ios:
     ionic cordova run ios
-
-build-android:
-    ionic cordova build android
 
 update-plugin-local:
     ionic cordova plugin remove cordova-plugin-hypertrack-v3
@@ -26,3 +26,4 @@ re-add-android:
 alias u := update-plugin-local
 alias a := run-android
 alias c := copy-local-plugin
+alias ba := build-android
