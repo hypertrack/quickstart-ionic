@@ -1,3 +1,22 @@
+alias ba := build-android
+alias ra := run-android
+
+alias ap := add-plugin
+alias rp := remove-plugin
+alias up := update-plugin
+alias c := copy-local-ionic-native-plugin
+alias o := open-app-code
+alias on := open-nm-ionic-native-code
+
+alias rap := remove-android
+alias aap := add-android
+
+open-app-code:
+    code src/app/home/home.page.ts
+
+open-nm-ionic-native-code:
+    code node_modules/@awesome-cordova-plugins/hyper-track
+
 add-plugin version = "latest":
     ionic cordova plugin add cordova-plugin-hypertrack-v3@{{version}}
 
@@ -28,9 +47,6 @@ build-android:
 run-android:
     ionic cordova run android
 
-open-ionic-native-plugin-js:
-    code node_modules/@awesome-cordova-plugins/hyper-track/index.js
-
 remove-android:
     ionic cordova platform rm android
 
@@ -52,14 +68,3 @@ reset-plugin:
     just a
     just c
     just a
-
-alias ba := build-android
-alias a := run-android
-
-alias ap := add-plugin
-alias rp := remove-plugin
-alias up := update-plugin
-alias c := copy-local-ionic-native-plugin
-
-alias ra := remove-android
-alias aa := add-android

@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { HyperTrack } from '@awesome-cordova-plugins/hyper-track';
+import { HyperTrackPlugin } from '@awesome-cordova-plugins/hyper-track/ngx';
 import { AlertController } from '@ionic/angular';
 import { ChangeDetectorRef } from '@angular/core';
 import { Platform } from '@ionic/angular';
@@ -12,7 +12,7 @@ const PUBLISHABLE_KEY = "PUT_YOUR_PUBLISHABLE_KEY_HERE"
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnDestroy {
-  hyperTrack: HyperTrack;
+  // hyperTrack: HyperTrack;
   // trackingSubscription: Subscription;
   // availabilitySubscription: Subscription;
   // errorsSubscription: Subscription;
@@ -24,22 +24,25 @@ export class HomePage implements OnDestroy {
   constructor(
     private alertController: AlertController,
     public platform: Platform,
-    private changeRef: ChangeDetectorRef
+    private changeRef: ChangeDetectorRef,
+    hyperTrack: HyperTrackPlugin
   ) {
     platform.ready().then((readySource) => {
       console.log("Platform ready", readySource)
+      console.log("HyperTrackPlugin", hyperTrack, JSON.stringify(hyperTrack))
+      // console.log(hyperTrack.selfLink, JSON.stringify(hyperTrack.selfLink))
+      // console.log(hyperTrack.getSelf(), JSON.stringify(hyperTrack.getSelf()))
+      console.log((window as any).HyperTrack)
       this.initialize();
     })
   }
 
   async initialize() {
     try {
-      console.log("Initializing HyperTrack")
-      this.hyperTrack = await HyperTrack.initialize(
-        PUBLISHABLE_KEY,
-        // { loggingEnabled: true }
-      );
-      console.log(this.hyperTrack)
+      console.log("App start")
+      // console.log(JSON.stringify(new HyperTrackPlugin()))
+      
+      // console.log(this.hyperTrack)
 
       // this.deviceId = await this.hyperTrack.getDeviceId();
       // console.log(`Device Id: ${this.deviceId}`)
